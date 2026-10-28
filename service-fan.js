@@ -21,5 +21,22 @@
  new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(inView)scroll();else{cancelAnimationFrame(raf);raf=0;last=0;}},{rootMargin:'80px'}).observe(section);
  addEventListener('scroll',scroll,{passive:true});let resize;addEventListener('resize',()=>{clearTimeout(resize);resize=setTimeout(()=>{layout();scroll()},100)},{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;last=0;}else scroll();});
  reduced.addEventListener('change',()=>{cancelAnimationFrame(raf);raf=0;spread=target=1;layout();scroll();});
- select(0);section.classList.add('sf-ready');
+ // Rotate only while the visual deck is visible. Interacting hands control to the visitor.
+ const toggle=section.querySelector('[data-sf-auto]');
+ let autoTimer=0,autoVisible=false,hovered=false,userPaused=false;
+ const hasReadingFocus=()=>section.contains(document.activeElement)&&document.activeElement!==toggle;
+ function stopAuto(){clearTimeout(autoTimer);autoTimer=0;section.dataset.autoplay='paused';}
+ function scheduleAuto(){stopAuto();toggle.textContent=userPaused||reduced.matches?'Play':'Pause';toggle.setAttribute('aria-label',userPaused||reduced.matches?'Play automatic service rotation':'Pause automatic service rotation');toggle.disabled=reduced.matches;
+  if(userPaused||reduced.matches||hovered||hasReadingFocus()||!autoVisible||document.hidden)return;
+  section.dataset.autoplay='playing';autoTimer=setTimeout(()=>{autoTimer=0;select(active+1);scheduleAuto();},6000);
+ }
+ toggle.addEventListener('click',()=>{userPaused=!userPaused;scheduleAuto();});
+ section.addEventListener('click',e=>{if(e.target.closest('[data-sf-auto]'))return;if(e.target.closest('button,a')){userPaused=true;scheduleAuto();}},true);
+ section.addEventListener('keydown',e=>{if(e.target.closest('[data-sf-auto]'))return;if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){userPaused=true;scheduleAuto();}},true);
+ section.querySelectorAll('.sf-deck,.sf-details').forEach(el=>{el.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hovered=true;scheduleAuto();}});el.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){hovered=false;scheduleAuto();}});});
+ deck.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'){userPaused=true;scheduleAuto();}},{passive:true});
+ section.addEventListener('focusin',scheduleAuto);section.addEventListener('focusout',()=>setTimeout(scheduleAuto,0));
+ new IntersectionObserver(entries=>{autoVisible=entries[0].intersectionRatio>=.55;scheduleAuto();},{threshold:[0,.55,1]}).observe(deck);
+ document.addEventListener('visibilitychange',scheduleAuto);reduced.addEventListener('change',scheduleAuto);
+ select(0);section.classList.add('sf-ready');scheduleAuto();
 })();
