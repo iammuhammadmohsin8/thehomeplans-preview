@@ -1,0 +1,86 @@
+[
+  {
+    "key": "custom-plans",
+    "title": "Custom house plans",
+    "short": "House plans",
+    "desc": "A home shaped around your rooms, routines and the space you have.",
+    "items": [
+      "Custom home floor plans",
+      "Layout modifications",
+      "ADU & garage-conversion concepts"
+    ],
+    "href": "service-01",
+    "alt": "Stock photograph of architectural drawings being prepared by hand",
+    "share": "Site dimensions, room requirements and existing plans."
+  },
+  {
+    "key": "cad-drafting",
+    "title": "2D drafting & CAD",
+    "short": "Drafting & CAD",
+    "desc": "Turn your sketches and existing drawings into clear, editable digital plans.",
+    "items": [
+      "Hand sketch to CAD",
+      "PDF-to-CAD redraws",
+      "Old blueprint digitizing"
+    ],
+    "href": "service-cad",
+    "alt": "Stock architectural workspace with drawings and a model on the desk",
+    "share": "Your source sketch, PDF or blueprint and verified measurements."
+  },
+  {
+    "key": "renders",
+    "title": "3D architectural renders",
+    "short": "3D renders",
+    "desc": "See the design, materials and proportions before your project moves forward.",
+    "items": [
+      "Exterior visualizations",
+      "Interior 3D renders",
+      "3D floor plans"
+    ],
+    "href": "service-03",
+    "alt": "Stock architectural exterior showing facade materials and warm lighting",
+    "share": "Design drawings, material references and the views you need."
+  },
+  {
+    "key": "walkthroughs",
+    "title": "Walkthroughs & 360 tours",
+    "short": "Walkthroughs",
+    "desc": "Experience how spaces connect, with a moving view through your proposed design.",
+    "items": [
+      "3D walkthrough animations",
+      "360 virtual tours",
+      "Property presentation visuals"
+    ],
+    "href": "service-walkthroughs",
+    "alt": "Stock interior with stairs and connected spaces, illustrating a walkthrough viewpoint",
+    "share": "Your drawings or model, desired camera route and presentation requirements."
+  },
+  {
+    "key": "interior",
+    "title": "Interior & exterior design",
+    "short": "Interior & exterior",
+    "desc": "Bring layouts, finishes and a consistent visual direction together.",
+    "items": [
+      "Furniture layouts",
+      "Mood boards & finishes",
+      "Interior & exterior concepts"
+    ],
+    "href": "service-02",
+    "alt": "Stock living room showing furniture layout, coordinated finishes and daylight",
+    "share": "Room or facade photos, dimensions, style references and budget."
+  },
+  {
+    "key": "landscape",
+    "title": "Landscape & garden design",
+    "short": "Landscape & garden",
+    "desc": "Give your outdoor space the same considered attention as your home.",
+    "items": [
+      "Backyard & garden layouts",
+      "Pool & outdoor kitchen concepts",
+      "3D garden visualization"
+    ],
+    "href": "service-04",
+    "alt": "Stock contemporary garden with swimming pool, terrace and planting",
+    "share": "Site measurements, outdoor photos and intended activities."
+  }
+]

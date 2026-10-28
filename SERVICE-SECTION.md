@@ -1,0 +1,11 @@
+# Service fan integration
+
+Services checked against Online Services.docx and services - example.docx on 2026-10-28. Six core remote-design categories only. No permit approval, certification, free consultation, price or delivery-time claims were introduced. Details and destination sections share the same service data in outputs/add_service_fan.py.
+
+The user-supplied React/GSAP fan is the motion reference. This existing site is buildless HTML/CSS/JavaScript: it has no React, TypeScript, Tailwind or shadcn runtime. The shipped equivalent uses service-fan.js, service-fan.css, semantic tab panels, Web Animations and native scroll events. No npm dependency or context provider is needed. It preserves the existing hero and GitHub Pages deployment.
+
+If migrating to the literal TSX component later: initialize a separate React TypeScript application (for example Vite react-ts), configure Tailwind with its Vite integration, run the shadcn CLI init, and install gsap. Put reusable TSX components in src/components/ui and configure @/* to src/*, so @/components/ui/card-fan-carousel resolves consistently. Put Tailwind imports in src/index.css. See https://ui.shadcn.com/docs/installation/vite and https://tailwindcss.com/docs/installation/using-vite. This migration was not necessary for the requested website section and has not been performed.
+
+Interaction: scroll unfolds the fan; six visible service tabs, card clicks and previous/next controls change the selected service. Tabs support arrow keys, Home and End. Touch swipe has a vertical-scroll guard and suppresses the resulting synthetic click. Reduced motion removes transition animation. Rendering stops offscreen and while the document is hidden. No autoplay or scroll hijacking.
+
+Images are optimized local WebP files. Source/license records are in assets/services/sources.json. Photographs illustrate service subject matter, not client portfolio results; a visible label states this. Replace with approved client renders, CAD screenshots and walkthrough stills when available.
